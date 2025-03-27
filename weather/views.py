@@ -1,0 +1,23 @@
+import requests
+from django.shortcuts import render
+
+def index(request):
+    weather_data = {}
+    if request.method == 'POST':
+        city = request.POST['city']
+        api_key = '80d36a642bf4b686eba6a70a6350e53f'
+        url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={api_key}'
+
+        response = requests.get(url)
+        if response.status_code == 200: # If the city is found 
+            data = response.json()
+            weather_data = {
+                'city': data['name'],
+                'temperature': data['main']['temp'],
+                'description': data['weather'][0]['description'],
+                'icon': data['weather'][0]['icon'],
+            }
+        else:
+            weather_data['error'] = 'City not found. Try entering another city!'
+
+    return render(request, 'weather/index.html', {'weather_data': weather_data})

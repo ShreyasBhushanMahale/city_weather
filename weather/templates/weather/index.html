@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{% static 'weather/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Current Weather Conditions</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="city" placeholder="Enter city name" required>
+            <button type="submit">Get Weather</button>
+        </form>
+
+        {% if weather_data %}
+            {% if weather_data.error %}
+                <p class="error">{{ weather_data.error }}</p>
+            {% else %}
+                <div class="weather-info">
+                    <h2>Weather in {{ weather_data.city }}</h2>
+                    <p><strong>Temperature:</strong> {{ weather_data.temperature }}°C</p>
+                    <p><strong>Description:</strong> {{ weather_data.description }}</p>
+                    <img src="http://openweathermap.org/img/wn/{{ weather_data.icon }}@2x.png" alt="Weather icon">
+                </div>
+            {% endif %}
+        {% endif %}
+        
+        <!-- Footer -->
+        <footer>
+            <p>Data from <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a></p><br>
+            <p>Developed by Shreyas B. Mahale</p>
+        </footer>
+    </div>
+</body>
+</html>
