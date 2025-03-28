@@ -14,10 +14,14 @@ def index(request):
             weather_data = {
                 'city': data['name'],
                 'temperature': data['main']['temp'],
+                'humidity': data['main']['humidity'],
+                'pressure': data['main']['pressure'],
+                'wind_speed': data['wind']['speed'],
+                'wind_direction': data['wind']['deg'],
                 'description': data['weather'][0]['description'],
                 'icon': data['weather'][0]['icon'],
             }
-        else:
+        else: # If the city is not found
             weather_data['error'] = 'City not found. Try entering another city!'
 
     return render(request, 'weather/index.html', {'weather_data': weather_data})
