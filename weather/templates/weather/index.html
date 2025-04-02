@@ -1,5 +1,4 @@
 {% load static %}
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -29,10 +28,6 @@
         <div class="weather-info">
             <h2>Weather now in {{ weather_data.city }}</h2>
             <p><strong>Temperature:</strong> {{ weather_data.temperature }}°C</p>
-            <p><strong>Humidity:</strong> {{ weather_data.humidity }}%</p>
-            <p><strong>Pressure:</strong> {{ weather_data.pressure }} hPa</p>
-            <p><strong>Wind:</strong> {{ weather_data.wind_speed }} m/s</p>
-            <p><strong>Wind Direction:</strong> {{ weather_data.wind_direction }}°</p>
             <p><strong>Description:</strong> {{ weather_data.description }}</p>
             <img src="http://openweathermap.org/img/wn/{{ weather_data.icon }}@2x.png" alt="Weather icon">
         </div>
