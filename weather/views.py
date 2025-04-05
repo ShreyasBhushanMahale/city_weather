@@ -55,7 +55,7 @@ def index(request):
                     'icon': data['current']['weather'][0]['icon'],
                 }
             else:
-                weather_data['error'] = 'Unable to fetch the past weather data for now.'
+                weather_data['error'] = 'Unable to fetch past weather data for now.'
 
         elif option == 'forecast':
             # Upcoming weather forecast for the next few hours
@@ -69,6 +69,10 @@ def index(request):
                         'datetime': forecast['dt_txt'],
                         'temperature': forecast['main']['temp'],
                         'description': forecast['weather'][0]['description'],
+                        'humidity': forecast['main']['humidity'],
+                        'pressure': forecast['main']['pressure'],
+                        'wind_speed': forecast['wind']['speed'],
+                        'wind_direction': forecast['wind']['deg'],
                         'icon': forecast['weather'][0]['icon'],
                     })
                 weather_data = {

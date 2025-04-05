@@ -18,7 +18,7 @@ body {
   max-width: 500px;
   max-height: 90vh; /* Limit the height to 90% of the viewport */
   overflow-y: auto; /* Enable scrolling if content overflows */
-  background-color:peachpuff;
+  background-color:ivory;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -33,7 +33,7 @@ h1 {
 
 form {
   display: block;
-  background-color: peachpuff;
+  background-color: ivory;
   justify-content: center;
   margin-bottom: 20px;
 }
@@ -49,8 +49,8 @@ input[type="text"] {
 
 button {
   padding: 10px 20px;
-  border-radius: 8px;
-  background-color: olive;
+  border-radius: 9px;
+  background-color:darkgreen;
   color: antiquewhite;
   border: none;
   cursor: pointer;
@@ -58,7 +58,7 @@ button {
 }
 
 button:hover {
-  background-color: gold;
+  background-color:khaki;
   color: brown;
 }
 
@@ -81,8 +81,8 @@ select {
 
 /* Add hover effect for the dropdown */
 select:hover {
-  border-color: blanchedalmond;
-  background-color: burlywood;
+  border-color:greenyellow;
+  background-color:greenyellow;
 }
 
 /* Style the dropdown options */
@@ -121,8 +121,8 @@ img {
 }
 
 .error {
-  color: red;
-  font-size: 1.6rem;
+  color: crimson;
+  font-size: 1.7rem;
   font-family: Arial, Helvetica, sans-serif;
 }
 

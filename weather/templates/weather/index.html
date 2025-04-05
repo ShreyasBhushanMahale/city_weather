@@ -21,12 +21,12 @@
 
             <!-- Dropdown for selecting weather type -->
             <select name="option">
-                <option value="current">Current Weather</option>
+                <option value="current">Right Now</option>
                 <option value="past">Past Weather</option>
                 <option value="forecast">Forecast</option>
             </select>
 
-            <button type="submit">See Weather</button>
+            <button type="submit">Get Weather Information</button>
         </form>
 
         {% if weather_data %}
@@ -37,7 +37,7 @@
         {% if weather_data.temperature %}
         <div class="weather-info">
             <h2>Weather right now in {{ weather_data.city }}</h2>
-            <h5>Source: OpenWeatherMap</h5>
+            <h5>Information provided by: <b>OpenWeatherMap</b></h5>
             <p><strong>Temperature:</strong> {{ weather_data.temperature }}°C</p>
             <p><strong>Humidity:</strong> {{weather_data.humidity}} %</p>
             <p><strong>Wind Speed:</strong> {{weather_data.wind_speed}} m/s</p>
@@ -52,7 +52,7 @@
         {% if weather_data.past %}
         <div class="weather-info">
             <h2>Past Weather in {{ weather_data.city }}</h2>
-            <h5>Source: OpenWeatherMap</h5>
+            <h5>Information Provided by: <b>OpenWeatherMap</b></h5>
             <p><strong>Temperature:</strong> {{ weather_data.past.temperature }}°C</p>
             <p><strong>Description:</strong> {{ weather_data.past.description }}</p>
             <img src="http://openweathermap.org/img/wn/{{ weather_data.past.icon }}.png" alt="Weather Icon">
@@ -63,13 +63,18 @@
         {% if weather_data.forecast %}
         <div class="weather-info">
             <h2>Today's forecast for {{ weather_data.city }}</h2>
-            <h5>Source: OpenWeatherMap</h5>
+            <h4>For the next few hours</h4>
+            <h5>Information provided by: <b>OpenWeatherMap</b></h5>
             <ul>
                 {% for forecast in weather_data.forecast %}
                 <li>
                     <p><strong>Date & Time:</strong> {{ forecast.datetime }}</p>
                     <p><strong>Temperature:</strong> {{ forecast.temperature }}°C</p>
                     <p><strong>Description:</strong> {{ forecast.description }}</p>
+                    <p><strong>Humidity:</strong> {{ forecast.humidity }} %</p>
+                    <p><strong>Wind Speed:</strong> {{ forecast.wind_speed }} m/s</p>
+                    <p><strong>Wind Direction:</strong> {{ forecast.wind_direction }}°</p>
+                    <p><strong>Pressure:</strong> {{ forecast.pressure }} hPa</p>
                     <img src="http://openweathermap.org/img/wn/{{ forecast.icon }}.png" alt="Weather Icon">
                 </li>
                 {% endfor %}
@@ -82,7 +87,10 @@
 </body>
 <!-- Footer -->
 <footer>
-    <b>Developed by Shreyas B. Mahale</p>
+    <div class="footer">
+        <p>&copy; 2025 Weather App. All rights reserved.</p>
+        <p>Developed by Shreyas B. Mahale</p>
+    </div>
 </footer>
 
 </html>
