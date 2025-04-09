@@ -3,10 +3,12 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column; /* Stack content vertically */
+  flex-direction: column;
+  /* Stack content vertically */
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensure the body takes up the full viewport height */
+  min-height: 100vh;
+  /* Ensure the body takes up the full viewport height */
   background-image: url('Weather Effects.png');
   background-size: cover;
   background-position: center;
@@ -16,9 +18,9 @@ body {
   text-align: center;
   width: 100%;
   max-width: 500px;
-  max-height: 90vh; /* Limit the height to 90% of the viewport */
-  overflow-y: auto; /* Enable scrolling if content overflows */
-  background-color:ivory;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: ivory;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -40,7 +42,7 @@ form {
 
 input[type="text"] {
   padding: 10px;
-  width: 100%; /* Make the input field responsive */
+  width: 100%;
   max-width: 300px;
   border-radius: 5px;
   border: 2px solid #ccc;
@@ -50,7 +52,7 @@ input[type="text"] {
 button {
   padding: 10px 20px;
   border-radius: 9px;
-  background-color:darkgreen;
+  background-color: darkgreen;
   color: antiquewhite;
   border: none;
   cursor: pointer;
@@ -58,7 +60,7 @@ button {
 }
 
 button:hover {
-  background-color:khaki;
+  background-color: khaki;
   color: brown;
 }
 
@@ -73,7 +75,8 @@ select {
   font-size: 1rem;
   color: #333;
   font-family: 'Arial', sans-serif;
-  appearance: none; /* Removes default dropdown arrow for consistent styling */
+  appearance: none;
+  /* Removes default dropdown arrow for consistent styling */
   outline: none;
   cursor: pointer;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
@@ -81,8 +84,8 @@ select {
 
 /* Add hover effect for the dropdown */
 select:hover {
-  border-color:greenyellow;
-  background-color:greenyellow;
+  border-color: greenyellow;
+  background-color: greenyellow;
 }
 
 /* Style the dropdown options */
@@ -116,7 +119,8 @@ p {
 
 img {
   margin-top: 15px;
-  max-width: 100%; /* Ensure images are responsive */
+  max-width: 100%;
+  /* Ensure images are responsive */
   height: auto;
 }
 
@@ -127,12 +131,14 @@ img {
 }
 
 footer {
-  margin-top: auto; /* Push the footer to the bottom */
+  margin-top: auto;
+  /* Push the footer to the bottom */
   font-size: 0.9rem;
   color: #292828;
   text-align: center;
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Slightly transparent background */
   width: 100%;
   box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
 }
