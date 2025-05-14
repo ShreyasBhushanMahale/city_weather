@@ -60,8 +60,8 @@ button {
 }
 
 button:hover {
-  background-color: khaki;
-  color: brown;
+  background-color: lightskyblue;
+  color: black;
 }
 
 /* Style the dropdown container */
@@ -84,8 +84,8 @@ select {
 
 /* Add hover effect for the dropdown */
 select:hover {
-  border-color: greenyellow;
-  background-color: greenyellow;
+  border-color: aquamarine;
+  background-color: aquamarine;
 }
 
 /* Style the dropdown options */
