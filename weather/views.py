@@ -3,17 +3,14 @@ from datetime import datetime, timedelta
 from django.shortcuts import render
 
 
-def right_now(request):
-    now = datetime.now()
-    return render(request, "datetime.html", {"rightnow": now})
-
-
 def index(request):
     weather_data = {}
     if request.method == "POST":
         city = request.POST["city"]
-        option = request.POST.get("option", "current")  # Get the selected option
-        api_key = "SECRET_KEY"
+        option = request.POST.get(
+            "option", "current"
+        )  # Get the selected option as default
+        api_key = "80d36a642bf4b686eba6a70a6350e53f"
 
         # Get city coordinates for historical or forecast data
         geo_url = f"http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=1&appid={api_key}"
@@ -29,7 +26,7 @@ def index(request):
             # Current weather right now
             url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={api_key}"
             response = requests.get(url)
-            if response.status_code == 200:
+            if response.status_code == 200:  # 200
                 data = response.json()
                 weather_data = {
                     "city": data["name"],
@@ -70,7 +67,7 @@ def index(request):
             if response.status_code == 200:
                 data = response.json()
                 forecast_list = []
-                for forecast in data["list"][:5]:  # Get the next 5 forecasts
+                for forecast in data["list"][:7]:  # Get the next 7 forecasts
                     forecast_list.append(
                         {
                             "datetime": forecast["dt_txt"],
