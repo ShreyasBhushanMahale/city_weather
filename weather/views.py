@@ -10,7 +10,7 @@ def index(request):
         option = request.POST.get(
             "option", "current"
         )  # Get the selected option as default
-        api_key = "80d36a642bf4b686eba6a70a6350e53f"
+        api_key = "MY_KEY_PRIVATE"
 
         # Get city coordinates for historical or forecast data
         geo_url = f"http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=1&appid={api_key}"
