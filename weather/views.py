@@ -26,7 +26,7 @@ def index(request):
             # Current weather right now
             url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={api_key}"
             response = requests.get(url)
-            if response.status_code == 200:  # 200
+            if response.status_code == 200:
                 data = response.json()
                 weather_data = {
                     "city": data["name"],
