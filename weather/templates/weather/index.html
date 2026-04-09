@@ -22,7 +22,6 @@
             <!-- Dropdown for selecting weather type -->
             <select name="option">
                 <option value="current">Right Now</option>
-                <option value="past">Past Weather</option>
                 <option value="forecast">Next Few Hours Forecast</option>
             </select>
 
@@ -45,17 +44,6 @@
             <p><strong>Pressure:</strong> {{weather_data.pressure}} hPa</p>
             <p><strong>Overall Description:</strong> {{ weather_data.description }}</p>
             <img src="http://openweathermap.org/img/wn/{{ weather_data.icon }}.png" alt="Weather Icon">
-        </div>
-        {% endif %}
-
-        <!-- Display Past Weather -->
-        {% if weather_data.past %}
-        <div class="weather-info">
-            <h2>Past Weather in {{ weather_data.city }}</h2>
-            <h5>Information Provided by: <b>OpenWeatherMap</b></h5>
-            <p><strong>Temperature:</strong> {{ weather_data.past.temperature }}°C</p>
-            <p><strong>Description:</strong> {{ weather_data.past.description }}</p>
-            <img src="http://openweathermap.org/img/wn/{{ weather_data.past.icon }}.png" alt="Weather Icon">
         </div>
         {% endif %}
 

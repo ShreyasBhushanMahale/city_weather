@@ -10,7 +10,8 @@ def index(request):
         option = request.POST.get(
             "option", "current"
         )  # Get the selected option as default
-        api_key = "MY_KEY_PRIVATE"
+        api_key = "80d36a642bf4b686eba6a70a6350e53f"
+        # This should ideally be in environment variables for security, but hardcoded here for simplicity
 
         # Get city coordinates for historical or forecast data
         geo_url = f"http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=1&appid={api_key}"
@@ -41,33 +42,14 @@ def index(request):
             else:
                 weather_data["error"] = "City not found. Try entering another city!"
 
-        elif option == "past":
-            past_timestamp = int((datetime.now() - timedelta(days=5)).timestamp())
-            url = f"http://api.openweathermap.org/data/2.5/onecall/timemachine?lat={lat}&lon={lon}&dt={past_timestamp}&units=metric&appid={api_key}"
-            response = requests.get(url)
-            if response.status_code == 200:  # If the place exists
-                data = response.json()
-                weather_data = {
-                    "city": city,
-                    "temperature": data["current"]["temp"],
-                    "humidity": data["current"]["humidity"],
-                    "pressure": data["current"]["pressure"],
-                    "wind_speed": data["current"]["wind_speed"],
-                    "wind_direction": data["current"]["wind_deg"],
-                    "description": data["current"]["weather"][0]["description"],
-                    "icon": data["current"]["weather"][0]["icon"],
-                }
-            else:
-                weather_data["error"] = "Unable to fetch past weather data for now."
-
         elif option == "forecast":
-            # Upcoming weather forecast for the next few hours
+            # Upcoming weather forecast for a short time range (next 8 forecasts, typically 3-hour intervals)
             url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&units=metric&appid={api_key}"
             response = requests.get(url)
             if response.status_code == 200:
                 data = response.json()
                 forecast_list = []
-                for forecast in data["list"][:7]:  # Get the next 7 forecasts
+                for forecast in data["list"][:8]:  # Get the next 8 forecasts
                     forecast_list.append(
                         {
                             "datetime": forecast["dt_txt"],
@@ -87,4 +69,7 @@ def index(request):
             else:
                 weather_data["error"] = "Unable to fetch forecast data."
 
-    return render(request, "weather/index.html", {"weather_data": weather_data})
+    # Always pass an `errors` mapping to the template (template expects `errors.city` possibility)
+    return render(
+        request, "weather/index.html", {"weather_data": weather_data, "errors": {}}
+    )
