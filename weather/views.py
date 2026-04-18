@@ -10,7 +10,7 @@ def index(request):
         option = request.POST.get(
             "option", "current"
         )  # Get the selected option as default
-        api_key = "80d36a642bf4b686eba6a70a6350e53f"
+        api_key = "OWN_API_KEY_HERE_VIA_OPENWEATHERMAP"
         # This should ideally be in environment variables for security, but hardcoded here for simplicity
 
         # Get city coordinates for historical or forecast data
