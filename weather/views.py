@@ -2,7 +2,6 @@ import requests
 from datetime import datetime, timedelta
 from django.shortcuts import render
 
-
 def index(request):
     weather_data = {}
     if request.method == "POST":
